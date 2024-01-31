@@ -22,19 +22,19 @@ TODO：
 
 ### Web Server
 可视化前端
-'''shell
+```shell
 python app.py
-'''
+```
 
 ### Spider Server
 此服务用于递归爬去网站内容
-'''shell
+```shell
 python spider.py
-'''
+```
 
 ### Singlefile Server
 此服务用于静态页面抓取
-'''shell
+```shell
 npm install -g "single-file-cli"
 python Singlefile.py
-'''
+```
