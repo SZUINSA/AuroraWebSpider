@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuroraWeb - SITE</title>
+  <link rel="stylesheet" href="/static/bootstrap.min.css" />
+  <script src="/static/bootstrap.min.js"></script>
+    <style>
+      .mh{
+        height: 25px;
+        padding-top: 0;
+      }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AuroraWeb</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/list">列表/LIST</a>
+          <a class="nav-link" href="/site">站点/SITE</a>
+          <a class="nav-link" href="/edit">添加站点/ADD SITE</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-lg">
+    <h2 style="text-align: center;">站点/SITE</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">站点/SITE</th>
+          <th scope="col">网址/URL</th>
+          <th scope="col">更新间隔/INTERVAL</th>
+          <th scope="col">更新时间/UPDATE TIME</th>
+          <th scope="col">操作1/OP1</th>
+          <th scope="col">操作2/OP2</th>
+          <th scope="col">操作3/OP3</th>
+          <th scope="col">操作4/OP4</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item[1][:16] }}</td>
+          <td>{{ item[0][:32] }}</td>
+          <td>{{ item[2] }} 天/DAY</td>
+          <td>{{ item[3] }}</td>
+          <td><a class="mh btn btn-primary" href="/list?search={{ item[1] }}&type=2">筛选/SA</a></td>
+          <td><a class="mh btn btn-primary" href="/edit?url={{ item[0] }}">编辑/EDIT</a></td>
+          <td><a class="mh btn btn-primary" href="/update?url={{ item[0] }}">更新/UP</a></td>
+          <td><a class="mh btn btn-primary" href="/del?url={{ item[0] }}">删除/DEL</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

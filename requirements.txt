@@ -1,0 +1,6 @@
+beautifulsoup4==4.12.3
+Flask==3.0.1
+flask_compress==1.14
+Flask_HTTPAuth==4.8.0
+selenium==4.17.2
+whoosh==2.7.4

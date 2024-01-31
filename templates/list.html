@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuroraWeb - LIST</title>
+  <link rel="stylesheet" href="/static/bootstrap.min.css" />
+  <script src="/static/bootstrap.min.js"></script>
+    <style>
+      .mh{
+        height: 25px;
+        padding-top: 0;
+      }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AuroraWeb</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/list">列表/LIST</a>
+          <a class="nav-link" href="/site">站点/SITE</a>
+          <a class="nav-link" href="#">索引数/INDEX - {{pages}} 页/PAGE</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-lg">
+    <h2 style="text-align: center;">列表/LIST</h2>
+    <form action="/list" method="get">
+      <div class="row">
+        <div class="col-md-2">
+          <select class="form-select" id="type" name="type" style="width: 100%;">
+            <option value="0">全文检索/FULL SEARCH</option>
+            <option value="1">仅标题/ONLY TITLE</option>
+            <option value="2">仅站点/ONLY SITE</option>
+            <option value="3">仅网址/ONLY URL</option>
+            <option value="4">仅正文/ONLY CONTENT</option>
+          </select>
+        </div>
+        <div class="col-md-8">
+          <input id="search" name="search" placeholder="检索内容/SEARCH FOR" class="form-control" value="" style="width: 100%;">
+        </div>
+        <div class="col-md-2">
+          <input type="submit" name="submit" value="搜索/SUBMIT" class="btn btn-success" style="width: 100%;">
+        </div>
+      </div>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">站点/SITE</th>
+          <th scope="col">网址/URL</th>
+          <th scope="col">标题/TITLE</th>
+          <th scope="col">操作/OP</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item[1][:16] }}</td>
+          <td>{{ item[0][:32] }}</td>
+          <td>{{ item[2][:32] }}</td>
+          <td><a class="mh btn btn-primary" href="/show?url={{ item[3] }}">查看/SHOW</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

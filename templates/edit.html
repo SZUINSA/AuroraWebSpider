@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuroraWeb - EDIT</title>
+  <link rel="stylesheet" href="/static/bootstrap.min.css" />
+  <script src="/static/bootstrap.min.js"></script>
+    <style>
+      .mh{
+        height: 25px;
+        padding-top: 0;
+      }
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AuroraWeb</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/list">列表/LIST</a>
+          <a class="nav-link" href="/site">站点/SITE</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-lg">
+    <h2 style="text-align: center;">编辑/EDIT</h2>
+    <table class="table">
+        <form action="/add" method="get">
+          <div class="row">
+              站点名/SITE NAME：<input id="site" name="site" placeholder="请取一个独一无二的名字/UNIQUE NAME PLEASE" class="form-control" value="{{items[1]}}" style="width: 100%;" >
+          </div>
+          <div class="row">
+              站点地址/SITE URL：<input id="url" name="url" placeholder="请带上/PLEASE FOLLOW HTTP(S)://" class="form-control" value="{{items[0]}}" style="width: 100%;">
+          </div>
+          <div class="row">
+              更新间隔(天)/UPDATE INTERVAL（DAY）：<input id="interval" name="interval" placeholder="默认为 30 天/ DEFAULT 30 DAYS" class="form-control" value="{{items[2]}}" style="width: 100%;">
+          </div>
+          <div class="row">
+              <input type="submit" name="submit" value="提交/SUBMIT" class="btn btn-success" style="width: 100%;">
+          </div>
+        </form>
+    </table>
+  </div>
+</body>
+</html>
