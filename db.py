@@ -1,9 +1,5 @@
 import os
 import sqlite3
-from whoosh.index import create_in,open_dir
-from whoosh.fields import *
-from whoosh.qparser import QueryParser, MultifieldParser
-from whoosh.query import compound, Term
 class sqliteDB:
     def __init__(self) -> None:
         if(os.path.exists('sqlite.db')==False):
